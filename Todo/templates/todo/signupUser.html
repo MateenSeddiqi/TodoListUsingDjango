@@ -8,11 +8,11 @@
 </head>
 <body>
     <h1>Sign Up</h1>
+    <h4>{{error}}</h4>
     <form method="POST">
         {% csrf_token %}
         {{form.as_p}}
         <button type="submit">Sign Up</button>
-    </form>
-    
+    </form>   
 </body>
 </html>
