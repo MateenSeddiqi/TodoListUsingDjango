@@ -7,6 +7,9 @@
     <title>Document</title>
 </head>
 <body>
+    {% extends 'todo/base.html' %}
+    {% block content %}
+
     <h1>Sign Up</h1>
     <h4>{{error}}</h4>
     <form method="POST">
@@ -14,5 +17,6 @@
         {{form.as_p}}
         <button type="submit">Sign Up</button>
     </form>   
+    {% endblock %}
 </body>
 </html>
