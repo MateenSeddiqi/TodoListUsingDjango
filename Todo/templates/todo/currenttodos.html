@@ -7,7 +7,17 @@
 
     {% extends 'todo/base.html' %}
     {% block content %}
-        <h3>Current users</h3>
+    <h3>Current users</h3>
+        <ul>
+            <li>{% for todo in todos %}</li>
+            <li>{{todo.title}}</li>
+            <li>{{todo.memo}}</li>
+            <li>{{todo.datecompleted}}</li>
+            <li>{{todo.user}}</li>
+        {% endfor  %}
+        </ul>
+        
+        
     {% endblock %}
     
 </body>
