@@ -43,6 +43,8 @@ def loginUser(request):
             login (request, user)
             return redirect('currenttodos')
 
+# def createtodo(request):
+#     # return render()
 
 def currenttodos(request):
     todos=Todo.objects.filter(user=request.user, datecompleted__isnull=True) # the first part of code will filter the todo list base on user login in website
