@@ -9,7 +9,7 @@
     {% block content %}
     <h3>Current users</h3>
         <ul>
-            <li>{% for todo in todos %}</li>
+        {% for todo in todos %}
             <li>{{todo.title}}</li>
             <li>{{todo.memo}}</li>
             <li>{{todo.datecompleted}}</li>
