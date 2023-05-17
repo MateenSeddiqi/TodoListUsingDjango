@@ -45,6 +45,6 @@ def loginUser(request):
 
 
 def currenttodos(request):
-    todos=Todo.objects.filter(user=request.user) # This code will filter the todo list base on user login in website
+    todos=Todo.objects.filter(user=request.user, datecompleted__isnull=True) # the first part of code will filter the todo list base on user login in website
     return render(request, 'todo/currenttodos.html', {'todos':todos})
 
