@@ -10,10 +10,13 @@
     <h3>Current users</h3>
         <ul>
         {% for todo in todos %}
-            <li>{{todo.title}}</li>
-            <li>{{todo.memo}}</li>
+            <li> 
+                {% if todo.importance %}<b>{% endif %} {{todo.title}} {% if todo.importance %}</b>{% endif %}
+                {% if todo.memo %} - {{ todo.memo }} {% endif %}
+            </li>
+            <!-- <li>{{todo.memo}}</li> 
             <li>{{todo.datecompleted}}</li>
-            <li>{{todo.user}}</li>
+            <li>{{todo.user}}</li> -->
         {% endfor  %}
         </ul>
         
