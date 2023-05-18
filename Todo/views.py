@@ -47,7 +47,14 @@ def createtodo(request):
     if request.method == 'GET':
         return render(request, 'todo/createtodo.html', {'form':TodoForm()})
     else:
-        pass
+        try:
+            form =TodoForm(request.POST)
+            newtodo= form.save(commit=False)
+            newtodo.user=request.user
+            newtodo.save()
+            return redirect('currenttodos')
+        except ValueError:
+            return render(request, 'todo/createtodo.html', {'form':TodoForm(), 'error': 'Bad data passed try again'})
     
 def currenttodos(request):
     todos=Todo.objects.filter(user=request.user, datecompleted__isnull=True) # the first part of code will filter the todo list base on user login in website
