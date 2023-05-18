@@ -3,9 +3,9 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from django.db import IntegrityError 
 from django.contrib.auth import login, logout, authenticate
-# from .forms import TodoForm
+from .forms import TodoForm
 from .models import Todo
-# Create your views here.
+
 
 def Home(request):
     return render(request, 'todo/Home.html')
@@ -43,9 +43,12 @@ def loginUser(request):
             login (request, user)
             return redirect('currenttodos')
 
-# def createtodo(request):
-#     # return render()
-
+def createtodo(request):
+    if request.method == 'GET':
+        return render(request, 'todo/createtodo.html', {'form':TodoForm()})
+    else:
+        pass
+    
 def currenttodos(request):
     todos=Todo.objects.filter(user=request.user, datecompleted__isnull=True) # the first part of code will filter the todo list base on user login in website
     return render(request, 'todo/currenttodos.html', {'todos':todos})
