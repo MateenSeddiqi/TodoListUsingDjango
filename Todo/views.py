@@ -6,7 +6,7 @@ from django.contrib.auth import login, logout, authenticate
 from .forms import TodoForm
 from .models import Todo
 from django.utils import timezone
-
+from django.contrib.auth.decorators import login_required # This code import the login required feature 
 def Home(request):
     return render(request, 'todo/Home.html')
 
@@ -26,12 +26,6 @@ def signupUser(request):
         else:
             return render(request, 'todo/signupUser.html', {'form':UserCreationForm(), 'error': 'Password is not match please check'})   
 
-def logoutUser(request):
-    if request.method=='POST':
-        logout(request)
-        return redirect('Home')
-
-
 def loginUser(request):
     if request.method == 'GET':
         return render(request, 'todo/loginUser.html', {'form':AuthenticationForm()})
@@ -43,6 +37,13 @@ def loginUser(request):
             login (request, user)
             return redirect('currenttodos')
 
+@login_required # This code enble the login required feature to the below function. 
+def logoutUser(request):
+    if request.method=='POST':
+        logout(request)
+        return redirect('Home')
+
+@login_required
 def createtodo(request):
     if request.method == 'GET':
         return render(request, 'todo/createtodo.html', {'form':TodoForm()})
@@ -55,11 +56,13 @@ def createtodo(request):
             return redirect('currenttodos')
         except ValueError:
             return render(request, 'todo/createtodo.html', {'form':TodoForm(), 'error': 'Bad data passed try again'})
-    
+
+@login_required    
 def currenttodos(request):
     todos=Todo.objects.filter(user=request.user, datecompleted__isnull=True) # the first part of code will filter the todo list base on user login in website
     return render(request, 'todo/currenttodos.html', {'todos':todos})
 
+@login_required
 def viewtodo(request, todo_pk):
     todo=get_object_or_404(Todo, pk=todo_pk, user=request.user)
     if request.method=='GET':
@@ -73,6 +76,7 @@ def viewtodo(request, todo_pk):
         except ValueError:
             return render(request, 'todo/viewtodo.html', {'todo':todo, 'form':form, 'error': 'Bad data passed try again'})
 
+@login_required
 def completetodo(request, todo_pk):
     todo=get_object_or_404(Todo, pk=todo_pk, user=request.user)
     if request.method == 'POST':
@@ -80,11 +84,12 @@ def completetodo(request, todo_pk):
         todo.save()
         return redirect('currenttodos')
 
+@login_required
 def completedtodos(request):
     todos=Todo.objects.filter(user=request.user, datecompleted__isnull=False).order_by('-datecompleted')
     return render(request, 'todo/completedtodos.html', {'todos':todos})
 
-
+@login_required
 def deletetodo(request, todo_pk):
     todo=get_object_or_404(Todo, pk=todo_pk, user=request.user)
     if request.method == 'POST':
