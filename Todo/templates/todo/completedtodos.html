@@ -1,17 +1,21 @@
-{% extends 'todo/base.html' %}
-    {% block content %}
-    <h3>Completed</h3>
-        <ul>
-        {% for todo in todos %}
-            
-            <a href="{% url 'todoview' todo.id %}">
-                <li> 
-                    {% if todo.importance %}<b>{% endif %} {{todo.title}} {% if todo.importance %}</b>{% endif %}
-                    {% if todo.memo %} - {{ todo.memo }} {% endif %}
-                    {{todo.datecompleted | date:'M j Y H:i' }}
-                </li>    
-            </a>
-        {% endfor  %}
-        </ul>
-    {% endblock %}
+{% extends "todo/base.html" %}
+
+{% block content %}
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-10">
+            <h1>Completed Todos</h1>
+        </div>
+    </div>
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-10">
+            <div class="list-group">
+                {% for todo in todos %}
+                    <a href="{% url 'todoview' todo.id %}" class="list-group-item list-group-item-action{% if todo.importance %} list-group-item-danger{% endif %}"><b>{{ todo.title }}</b> - Completed {{ todo.importance |date:'M j Y H:i' }}</a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
     

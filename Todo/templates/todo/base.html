@@ -74,26 +74,3 @@
 
 
 
-<!-- {% if user.is_authenticated %}
-
-Logged In as {{user.username}} <br>
-
-<a href="{% url 'createtodo' %}">Create Todo</a><br>
-<a href="{% url 'currenttodos' %}">Current Todo</a><br>
-<a href="{% url 'completedtodos' %}">Completed Todo</a><br>
-
-<form action="{% url 'logoutUser' %}" method="POST">
-    {% csrf_token %}
-    <button type="submit">Logout</button>
-</form>
-
-{% else %}
-
-<a href="{% url 'signupUser' %}">Sign Up</a> <br>
-<a href="{% url 'loginUser' %}">Login </a>
-
-<br>
-<br>
-{% endif %}
-
-{% block content %} {% endblock %} -->
