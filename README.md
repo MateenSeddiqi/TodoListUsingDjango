@@ -1,5 +1,5 @@
 # Todo list using Django 
-* It is a Todo list created using Django with below descriptions: 
+* A simple Todo list website created using Django with below descriptions: 
 
 ## Technologies:
     1. Django Version four for backend of system
