@@ -1,10 +1,10 @@
-# To do list using Django 
+# Todo list using Django 
+iT is a Todo list created using Django with below descriptions: 
 
 ## Technologies:
-    1. Django Version for backend 
-    2. Db Sqlite for Database 
-    3. HTML, CSS and BootStrap for frontend. 
- 
+    1. Django Version four for backend of system
+    3. HTML, CSS and BootStrap for frontend of system. 
+    3. Db.Sqlite for Database of system 
 ## Features:
     1. User Authentication:
         1. SignUp
