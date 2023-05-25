@@ -1,5 +1,5 @@
 # Todo list using Django 
-* It is a Todo list created using Django with below descriptions: 
+It is a Todo list created using Django with below descriptions: 
 
 ## Technologies:
     1. Django Version four for backend of system
@@ -7,10 +7,9 @@
     3. Db.Sqlite for Database of system 
 ## Features:
     1. User Authentication:
-        1. SignUp
-        2. SignIn
-        3. Login 
-        4. Logout
+        1. Sign-up
+        2. Log-in
+        4. Log-out
     2. CRUD operations along with make as Complete:
          1. Creating the Todo by users 
          2. Read the Current Todo by the users
