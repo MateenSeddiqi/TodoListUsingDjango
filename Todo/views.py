@@ -37,7 +37,7 @@ def loginUser(request):
             login (request, user)
             return redirect('currenttodos')
 
-@login_required # This code enble the login required feature to the below function. 
+@login_required # This code enable the login required feature to the below function. 
 def logoutUser(request):
     if request.method=='POST':
         logout(request)
