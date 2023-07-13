@@ -11,7 +11,7 @@
         2. Log-in
         4. Log-out
     2. CRUD operations along with make as Complete:
-         1. Creating the Todo by users 
+         1. Creating the Todo list by users 
          2. Read the Current Todo by the users
          3. Update the Todo by user
          4. Deleting and make completing Todo list by user. 
