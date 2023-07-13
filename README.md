@@ -4,7 +4,7 @@
 ## Technologies:
     1. Django Version four for backend of system
     3. HTML, CSS and BootStrap for frontend of system. 
-    3. Db.Sqlite for Database of system 
+    3. Db.Sqlite for Database 
 ## Features:
     1. User Authentication:
         1. Sign-up
