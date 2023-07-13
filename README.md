@@ -15,4 +15,4 @@
          2. Read the Current Todo by the users
          3. Update the Todo by user
          4. Deleting and make completing Todo list by user. 
-         5. Make as Complete the Todo by user 
+         5. Make as Complete the Todo by users 
